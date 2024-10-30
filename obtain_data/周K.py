@@ -90,7 +90,7 @@ def get_k_history(code: str, beg: str, end: str, klt: int = 101, fqt: int = 1) -
     json_response: dict = requests.get(
         url, headers=EastmoneyHeaders).json()
 
-    data = json_response.get('data')
+    data = json_response.get('../data')
     if data is None:
         if secid[0] == '0':
             secid = f'1.{code}'
@@ -100,7 +100,7 @@ def get_k_history(code: str, beg: str, end: str, klt: int = 101, fqt: int = 1) -
         url = base_url + '?' + urlencode(params)
         json_response: dict = requests.get(
             url, headers=EastmoneyHeaders).json()
-        data = json_response.get('data')
+        data = json_response.get('../data')
     if data is None:
         print('股票代码:', code, '可能有误')
         return pd.DataFrame(columns=columns)
